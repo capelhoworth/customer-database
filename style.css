@@ -5,4 +5,14 @@
 
 .card {
   min-width: 30%;
+  height: 40vh;
+}
+
+img {
+  height: 200px;
+  object-fit: contain;
+}
+
+.card-image {
+  border: 2px solid red;
 }

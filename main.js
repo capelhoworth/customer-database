@@ -1,7 +1,7 @@
 const customerContainer = document.querySelector("#customers");
 // grab the customer container
 
-console.log(customerContainer);
+// console.log(customerContainer);
 
 // loop through the customer objects and build html for each one
 for (let customer of customers) {
@@ -16,7 +16,36 @@ for (let customer of customers) {
   let text = document.createTextNode(
     `${customer.name.first} ${customer.name.last}`
   );
-  card.appendChild(text);
+  name.appendChild(text);
   // add the name to the card
+
+  // begin own work
+  let thumb = document.createElement("div");
+  thumb.classList.add("card-image");
+  thumb.classList.add("circle");
+  let pic = document.createElement("img");
+  pic.src = customer.picture.thumbnail;
+  thumb.appendChild(pic);
+
+  let email = document.createElement("div");
+  email.innerText = `${customer.email}`;
+
+  // THIS IS WHERE YOU ARE -
+  // let address = document.createElement("div");
+  // address.classList.add("address");
+  // address.innerText = `${customer.location.street}`;
+
+  let bday = document.createElement("div");
+  bday.innerText = `${moment(customer.dob.date).format("ll")}`;
+
+  let since = document.createElement("div");
+  since.innerText = `${moment(customer.registered.date).format("ll")}`;
+
+  card.appendChild(thumb);
+  card.appendChild(name);
+  card.appendChild(email);
+  card.appendChild(bday);
+  card.appendChild(since);
+
   customerContainer.appendChild(card);
 }
