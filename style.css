@@ -1,0 +1,8 @@
+#customers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  min-width: 30%;
+}
