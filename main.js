@@ -14,8 +14,9 @@ for (let customer of customers) {
   // create a div for name and apply the materialize class to it
   name.classList.add("card-title");
   let text = document.createTextNode(
-    `${customer.name.first} ${customer.name.last}`
+    `${titleCase(customer.name.first)} ${titleCase(customer.name.last)}`
   );
+  name.classList.add("name");
   name.appendChild(text);
   // add the name to the card
 
@@ -28,12 +29,17 @@ for (let customer of customers) {
   thumb.appendChild(pic);
 
   let email = document.createElement("div");
+  email.classList.add("email");
   email.innerText = `${customer.email}`;
 
-  // THIS IS WHERE YOU ARE -
-  // let address = document.createElement("div");
-  // address.classList.add("address");
-  // address.innerText = `${customer.location.street}`;
+  let address = document.createElement("div");
+  address.classList.add("address");
+  address.innerText = `${customer.location.street.number} ${
+    customer.location.street.name
+  }
+   ${customer.location.city},${nameToAbbr(customer.location.state)} ${
+    customer.location.postcode
+  }`;
 
   let bday = document.createElement("div");
   bday.innerText = `${moment(customer.dob.date).format("ll")}`;
@@ -44,8 +50,15 @@ for (let customer of customers) {
   card.appendChild(thumb);
   card.appendChild(name);
   card.appendChild(email);
+  card.appendChild(address);
   card.appendChild(bday);
   card.appendChild(since);
 
   customerContainer.appendChild(card);
+}
+
+function titleCase(word) {
+  let wordLow = word.toLowerCase();
+  let finalWord = wordLow[0].toUpperCase() + wordLow.slice(1);
+  return finalWord;
 }

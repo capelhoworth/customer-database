@@ -6,6 +6,10 @@
 .card {
   min-width: 30%;
   height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 img {
@@ -14,5 +18,13 @@ img {
 }
 
 .card-image {
-  border: 2px solid red;
+  border: 2px solid white;
+}
+
+.email {
+  color: gray;
+}
+
+.name {
+  font-size: 200px;
 }
