@@ -37,7 +37,7 @@ for (let customer of customers) {
   address.innerText = `${customer.location.street.number} ${
     customer.location.street.name
   }
-   ${customer.location.city},${nameToAbbr(customer.location.state)} ${
+    ${customer.location.city},${nameToAbbr(customer.location.state)} ${
     customer.location.postcode
   }`;
 
